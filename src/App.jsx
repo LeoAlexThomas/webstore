@@ -89,7 +89,7 @@ const App = () => {
           </>
         }
       >
-        <div className="flex gap-4 flex-col max-h-[700px] overflow-y-auto ">
+        <div className="flex gap-4 flex-col max-h-[400px] sm:max-h-[700px] overflow-y-auto ">
           {cart.length === 0 ? (
             <div className="w-full flex flex-col justify-stretch items-center gap-2 ">
               <FaCartPlus className="w-10 h-10" />
