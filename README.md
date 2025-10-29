@@ -10,7 +10,6 @@ A modern e-commerce web application built with React and Vite, featuring a respo
 - Headless UI
 - React Icons
 - Axios for API calls
-- ESLint for code quality
 
 ## Project Structure
 
