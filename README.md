@@ -19,11 +19,15 @@ webstore/
 ├── src/
 │   ├── Components/
 │   │   ├── CartCard.jsx
+│   │   ├── CartFooterSection.jsx
+│   │   ├── CartSection.jsx
 │   │   ├── CustomToast.jsx
 │   │   ├── DialogModel.jsx
 │   │   ├── HeaderSection.jsx
 │   │   ├── ProductCard.jsx
 │   │   └── Products.jsx
+│   ├── hooks/
+│   │   ├── useApiCall.jsx
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
