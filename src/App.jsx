@@ -1,15 +1,13 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import HeaderSection from "./Components/HeaderSection";
 import Products from "./Components/Products";
-import { CiWarning } from "react-icons/ci";
-import { FaCartPlus } from "react-icons/fa6";
 import DialogModel from "./Components/DialogModel";
-import CartCard from "./Components/CartCard";
 import CustomToast from "./Components/CustomToast";
+import CartSection from "./Components/CartSection";
+import CartFooterSection from "./Components/CartFooterSection";
 
 const App = () => {
   // States
-  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWarningOpen, setIsWarningOpen] = useState(false);
@@ -69,58 +67,20 @@ const App = () => {
         isModelOpen={isCartOpen}
         onModelClose={handleCartClose}
         titleSection={
-          <>
-            <p className="text-3xl font-semibold text-[#141517]">Cart</p>
-          </>
+          <p className="text-3xl font-semibold text-[#141517]">Cart</p>
         }
-        additionalButtons={
-          <>
-            {cart.length !== 0 && (
-              <p className="text-lg font-medium justify-self-start">
-                Total Cost: $
-                {cart
-                  .reduce((acc, cv) => {
-                    return acc + cv.price;
-                  }, 0)
-                  .toFixed(2)}
-              </p>
-            )}
-            <div className="w-full flex-1" />
-          </>
-        }
+        additionalButtons={<CartFooterSection cart={cart} />}
       >
-        <div className="flex gap-4 flex-col max-h-[400px] sm:max-h-[700px] overflow-y-auto ">
-          {cart.length === 0 ? (
-            <div className="w-full flex flex-col justify-stretch items-center gap-2 ">
-              <FaCartPlus className="w-10 h-10" />
-              <p className="text-base text-center">
-                Please add products to cart
-              </p>
-            </div>
-          ) : (
-            cart.map((ele, index) => {
-              return (
-                <Fragment key={index}>
-                  <CartCard
-                    cart={ele}
-                    onRemoveCartClicked={() => handleRemoveFromCart(ele)}
-                  />
-                </Fragment>
-              );
-            })
-          )}
-        </div>
+        <CartSection cart={cart} onRemoveFromCart={handleRemoveFromCart} />
       </DialogModel>
 
+      {/* Nav section  */}
       <HeaderSection
         productsInCart={cart.length}
         onCartClicked={handleCartClicked}
       />
-      <Products
-        products={products}
-        setProducts={setProducts}
-        onAddToCardClicked={handleAddToCardClicked}
-      />
+      {/* Products list section */}
+      <Products onAddToCardClicked={handleAddToCardClicked} />
     </div>
   );
 };

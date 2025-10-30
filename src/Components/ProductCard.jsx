@@ -2,7 +2,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const ProductCard = ({ product, onAddToCartClicked }) => {
   return (
-    <div className="flex flex-col gap-4 justify-stretch border border-[#FF4F1840] rounded-xl overflow-hidden shadow-none hover:shadow-[0px_0px_35px_3px_#FF4F1840]">
+    <div className="flex flex-col gap-4 justify-between border border-[#FF4F1840] rounded-xl overflow-hidden shadow-none hover:shadow-[0px_0px_15px_1px_#FF4F1840]">
       <div className="bg-[#FF4F1840] p-4">
         <img
           src={product.image}
@@ -10,14 +10,12 @@ const ProductCard = ({ product, onAddToCartClicked }) => {
           className="w-[200px] h-[200px] object-contain mx-auto"
         />
       </div>
-      <h4 className="text-lg font-bold px-4 line-clamp-2 h-14">
-        {product.title}
-      </h4>
-      <p className="text-base text-gray-500 px-4 line-clamp-3 h-18">
+      <h4 className="text-lg font-bold px-4 line-clamp-2">{product.title}</h4>
+      <p className="text-base text-gray-500 px-4 line-clamp-3">
         {product.description}
       </p>
-      <div className="flex gap-4 justify-between">
-        <div className="py-2 px-4 mx-4 max-w-fit bg-[#FF4F18BF] rounded-full text-white">
+      <div className="flex gap-2 justify-between items-center">
+        <div className="py-2 px-4 mx-4 max-w-fit bg-[#FF4F18BF] rounded-xl text-white">
           <p className=" text-xs  uppercase">{product.category}</p>
         </div>
         <p className="text-base px-4">
